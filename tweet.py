@@ -4,7 +4,7 @@ import requests
 import tweepy
 
 def main(filename='temp'):
-    message = "Hey @camdotbio 👋! Here's your daily dog photo!"
+    message = "Hey, @camdotbio! 👋 \n\nHere's your daily dog photo!"
     # Authenticate to Twitter
     auth = tweepy.OAuthHandler(
         os.environ.get('TWITTER_API_KEY'), 
@@ -30,10 +30,10 @@ def main(filename='temp'):
         print("Error during authentication")
 
     try:
-        #api.update_status(status='Updating using OAuth authentication via Tweepy!')
         api.update_with_media(filename, status=message)
     except Exception as e:
         print('Error during sending of tweet \n %s' % e)
+    print('Tweet successfully sent!')
 
 if __name__ == '__main__':
     main()
