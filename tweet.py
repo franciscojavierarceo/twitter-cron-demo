@@ -14,20 +14,20 @@ def get_random_dog(filename: str='temp') -> None:
 
 def main(message: str, filename: str='temp') -> None:
     auth = tweepy.OAuthHandler(
-        os.environ.get('TWITTER_API_KEY'), 
+        os.environ.get('TWITTER_API_KEY'),
         os.environ.get('TWITTER_API_SECRET')
     )
     auth.set_access_token(
-        os.environ.get('TWITTER_ACCESS_TOKEN'), 
+        os.environ.get('TWITTER_ACCESS_TOKEN'),
         os.environ.get("TWITTER_ACCESS_TOKEN_SECRET")
     )
     api = tweepy.API(auth)
-    get_random_dog(filename) 
+    get_random_dog(filename)
 
     try:
         api.verify_credentials()
         print("Twitter Authentication Succeeded")
-    
+
         try:
             api.update_with_media(filename, status=message)
             print('Tweet successfully sent!')
@@ -39,4 +39,6 @@ def main(message: str, filename: str='temp') -> None:
 
 
 if __name__ == '__main__':
-    main("Hey, @camdotbio! 👋 \n\nHere's your daily dog photo!")
+    m0 = "Hey, @camdotbio! 👋 \n\nHere's your daily dog phot!"
+    m1 = "\n\nLearn how to automate dog photos here: https://bit.ly/3cVTQN3"
+    main(message=m0 + m1)
