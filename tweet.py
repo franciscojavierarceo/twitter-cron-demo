@@ -39,6 +39,6 @@ def main(message: str, filename: str='temp') -> None:
 
 
 if __name__ == '__main__':
-    m0 = "Hey, @camdotbio! 👋 \n\nHere's your daily dog phoo!"
+    m0 = "Hey, @camdotbio! 👋 \n\nHere's your daily dog photo!"
     m1 = "\n\nLearn how to automate dog photos here: https://bit.ly/3cVTQN3"
     main(message=m0 + m1)
